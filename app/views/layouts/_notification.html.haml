@@ -1,0 +1,9 @@
+- if flash[:notice]
+  .ui.green.message.notice.ui.very.padded.text.container
+    %i.info.icon
+    = notice
+- elsif flash[:alert]
+  .ui.red.message.alert.ui.very.padded.text.container
+    %i.warning.sign.icon
+    = alert
+- else

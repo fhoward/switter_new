@@ -1,0 +1,14 @@
+.ui.very.padded.text.container
+  = render 'swits/form'
+  - @swits.each do |swit|
+    .ui.feed
+      .event
+        .summary
+          %a
+            %strong= swit.user.username
+          posted
+          .date
+            = time_ago_in_words swit.created_at
+          .extra.text
+            = swit.content
+    / <div class="ui section divider"></div>

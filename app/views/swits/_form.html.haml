@@ -1,0 +1,21 @@
+.ui.form
+  = form_with(model: @swit, remote: true) do |form|
+    .field
+      %label Post Something
+      = form.text_area :content, id: :swit_content, maxlength: 200 , rows: 3, placeholder: 'Whats on your mind ?'
+    .lblCounter.counter
+      Character left:
+      %span#counter.counter{"data-maximum-length" => "140"}= @maximum_length
+    .actions
+      = form.submit nil, :class=>'ui teal button'
+:javascript
+  $(document).ready(function() {
+    var content = $("#swit_content");
+    var counter     = $("#counter");
+    var max_length  = counter.data("maximum-length");
+    counter.text(max_length - content.val().length);
+   
+    content.keyup(function() {
+    counter.text(max_length - $(this).val().length)
+    });
+  });
