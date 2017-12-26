@@ -12,13 +12,13 @@
           .extra.text
             = swit.content
 
-          = link_to swit_swit_path(swit), method: :put do
+          = link_to swit_swit_path(swit),:remote =>true, method: :put do
             .ui.labeled.button{:tabindex => "0"}
               .ui.orange.button
                 %i.heart.icon
                 Sweet
                 = swit.get_upvotes.size
-          = link_to sour_swit_path(swit), method: :put do
+          = link_to sour_swit_path(swit),:remote =>true, method: :put do
             .ui.labeled.button{:tabindex => "0"}
               .ui.green.button
                 %i.empty.heart.icon
