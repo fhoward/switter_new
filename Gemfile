@@ -22,6 +22,7 @@ gem 'devise'
 gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.12.1'
 gem "haml-rails", "~> 1.0"
 gem 'jquery-rails', '4.3.1'
+gem 'acts_as_votable', '~> 0.11.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
