@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # resources :swits
   resources :swits do
      member do
       put "swit", to: "swits#upvote"
