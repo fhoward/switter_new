@@ -1,0 +1,19 @@
+.ui.relaxed.equal.width.grid
+  .ui.row
+    .ui.four.wide.column
+    .ui.eight.wide.column.segment
+      %h2.ui.center.aligned.dividing.header
+        %i.lock.icon
+        Resend unlock instructions
+      %div{:class => "ui form #{"error" if resource.errors.any?}"}
+        = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+          .ui.error.message
+            = devise_error_messages!
+          .field
+            = f.label :email
+            = f.email_field :email, autofocus: true ,placeholder: "Enter your registered email"
+          .actions
+            = f.submit "Resend unlock instructions" ,class: "ui submit button primary "
+        .ui.horizontal.divider or
+        .ui.celled.horizontal.list
+          = render "devise/shared/links"

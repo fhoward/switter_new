@@ -1,0 +1,3 @@
+module SwitsHelper
+
+end

@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Swits
+%table
+  %thead
+    %tr
+      %th Content
+      %th User
+      %th{:colspan => "3"}
+  %tbody
+    - @swits.each do |swit|
+      %tr
+        %td= swit.content
+        %td= swit.user
+        %td= link_to 'Show', swit
+        %td= link_to 'Edit', edit_swit_path(swit)
+        %td= link_to 'Destroy', swit, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Swit', new_swit_path

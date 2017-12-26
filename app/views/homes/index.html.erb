@@ -1,0 +1,20 @@
+<div class="ui very padded text container">
+    <%= render 'swits/form'  %>
+    <% @swits.each do |swit| %>
+        <div class="ui feed">
+            <div class="event">
+                <div class="summary">
+                    <a> <strong><%= swit.user.username %></a> posted</strong>
+                        <div class="date">
+                          <%= time_ago_in_words swit.created_at %>
+                        </div>
+                    <div class="extra text">
+                    <%= swit.content %>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        <!-- <div class="ui section divider"></div> -->
+        <% end %>
+</div>
+
