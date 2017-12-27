@@ -1,9 +1,8 @@
 .ui.very.padded.text.container
-  = render 'swits/form'
   %h1.ui.header
-    SWIT FEED
+    RELATED SWITS
   - @swits.each do |swit|
-    .ui.feed.padded
+    .ui.feed
       .event
         .summary
           %a
@@ -15,7 +14,7 @@
             = swit.content
           %i.tags.icon
           = raw(swit.tag_list.map { |t| link_to t, tag_path(t) }.join(' { '))
-    
+
     = link_to swit_swit_path(swit), method: :put do
       .ui.labeled.button{:tabindex => "0"}
         .ui.orange.button
@@ -28,5 +27,3 @@
           %i.empty.heart.icon
           Sour
           =swit.get_downvotes.size
-            
-    / <div class="ui section divider"></div>

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
       put "sour", to: "swits#downvote"
     end
   end
+  get 'tags/:tag', to: 'homes#show', as: :tag
+  # resources :tags, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+  # get 'tags/:tag', to: 'tags#show', as: :tag
   devise_for :users
   get 'home', to: 'homes#index'
  
