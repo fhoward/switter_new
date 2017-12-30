@@ -2,16 +2,15 @@
 .ui.form.segment
   = form_for @swit do |form|
     .ui.field
-      %label Post Something
+      %label Your Swit
       = form.text_area :content, id: :swit_content, maxlength: 200 , rows: 3, placeholder: 'Whats on your mind ?'
     .ui.field  
-      %label Tags (separated by '{' )
-      = form.text_field :tag_list, value: form.object.tag_list.to_s  
+      = form.text_field :tag_list,placeholder: 'seperate tags with { ', value: form.object.tag_list.to_s  
     .lblCounter.counter
       Character left:
       %span#counter.counter{"data-maximum-length" => "140"}= @maximum_length
     .actions
-      = form.submit nil, :class=>'ui teal button'
+      = form.submit 'Post', :class=>'ui green button'
 
 :javascript
   $(document).ready(function() {

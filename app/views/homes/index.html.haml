@@ -1,33 +1,34 @@
-.ui.very.padded.text.container
+.ui.container
   = render 'swits/form'
-  %h1.ui.header.centered
-    SWIT FEED
-  %h2.ui.aligned.dividing.header
-  - @swits.each do |swit|
-    .ui.feed.padded
-      .event
-        .summary
-          %a
-            %strong= swit.user.username
-          %strong posted
-          .date
-            = time_ago_in_words swit.created_at
-          .extra.text
-            = swit.content
-          %i.tags.icon
-          = raw(swit.tag_list.map { |t| link_to t, tag_path(t) }.join(' { '))
-    
-    = link_to swit_swit_path(swit), method: :put do
-      .ui.labeled.button{:tabindex => "0"}
-        .ui.orange.button
-          %i.heart.icon
-          Sweet
-          = swit.get_upvotes.size
-    = link_to sour_swit_path(swit), method: :put do
-      .ui.labeled.button{:tabindex => "0"}
-        .ui.green.button
-          %i.empty.heart.icon
-          Sour
-          =swit.get_downvotes.size
-            
+  .ui.container.segment
+    %h4.ui.header.dividing.header
+      SWITS
+    - @swits.each do |swit|
+      .ui.feed.padded.segment
+        .event
+          .ui.summary
+            %a
+              %strong= swit.user.username
+            %strong posted
+            .date
+              = time_ago_in_words swit.created_at
+            .extra.text
+              = swit.content
+            %i.tags.icon
+            = raw(swit.tag_list.map { |t| link_to t, tag_path(t) }.join(' { '))
+      .ui.padded.segment
+        = link_to swit_swit_path(swit), method: :put do
+          .ui.labeled.button{:tabindex => "0"}
+            .ui.orange.button
+              %i.heart.icon
+              Sweet
+              = swit.get_upvotes.size
+        = link_to sour_swit_path(swit), method: :put do
+          .ui.labeled.button{:tabindex => "0"}
+            .ui.green.button
+              %i.empty.heart.icon
+              Sour
+              =swit.get_downvotes.size
+        
+        -# = link_to '#', remote: true, method: :delete    
     / <div class="ui section divider"></div>
