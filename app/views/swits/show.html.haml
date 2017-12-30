@@ -1,0 +1,25 @@
+
+.ui.feed.padded.segment.container
+  .event
+    .ui.summary
+      %a
+        %strong= @swit.user.username
+      %strong posted
+      .date
+        = time_ago_in_words @swit.created_at
+      .extra.text
+        = @swit.content
+      %i.tags.icon
+      = raw(@swit.tag_list.map { |t| link_to t, tag_path(t) }.join(' { '))
+  
+      .ui.padded.container
+        - @swit.comment.each do |comment|
+          .h1
+            %strong= comment.user.username
+          %p
+            %strong Commented:
+            = comment.body
+      
+    
+  = render 'comments/form' 
+      

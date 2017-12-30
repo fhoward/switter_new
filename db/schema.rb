@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226184711) do
+ActiveRecord::Schema.define(version: 20171230020346) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "body"
+    t.bigint "user_id"
+    t.bigint "swit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["swit_id"], name: "index_comments_on_swit_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "swits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -79,5 +89,7 @@ ActiveRecord::Schema.define(version: 20171226184711) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "comments", "swits"
+  add_foreign_key "comments", "users"
   add_foreign_key "swits", "users"
 end

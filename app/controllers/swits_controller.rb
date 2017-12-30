@@ -4,6 +4,10 @@ class SwitsController < ApplicationController
   def new
     @maximum_length = Swit.validators_on( :content ).first.options[:maximum]
   end
+  
+  def show
+    @swit = Swit.find(params[:id])
+  end
 
   def create
     @swit = Swit.new(swit_params)
@@ -20,6 +24,7 @@ class SwitsController < ApplicationController
     end
   end
   
+ 
   def upvote 
     @swit = Swit.find_by_id(params[:id])
     @swit.upvote_by current_user

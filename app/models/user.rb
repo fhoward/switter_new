@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   has_many :swit
   acts_as_voter
+  has_many :comment
 end

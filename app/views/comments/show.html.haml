@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Body:
+  = @comment.body
+%p
+  %b User:
+  = @comment.user
+%p
+  %b Swit:
+  = @comment.swit
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', comments_path
+
+-# - @swit.comment.each do |comment|
+  -#   %p
+  -#     %strong Commenter:
+  -#     = comment.user.username
+  -#   %p
+  -#     %strong Comment:
+  -#     = comment.body

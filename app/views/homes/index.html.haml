@@ -30,5 +30,9 @@
               Sour
               =swit.get_downvotes.size
         
-        -# = link_to '#', remote: true, method: :delete    
-    / <div class="ui section divider"></div>
+        = link_to swit_path(swit) do
+          .ui.labeled.button{:tabindex => "0"}
+            .ui.yellow.button
+              Comment
+        
+

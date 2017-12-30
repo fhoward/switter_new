@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  
   # resources :swits
   resources :swits do
+    resources :comments
      member do
       put "swit", to: "swits#upvote"
       put "sour", to: "swits#downvote"
