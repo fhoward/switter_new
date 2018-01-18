@@ -1,25 +1,12 @@
--# = form_with(model: @swit, remote: true) do |form| # using this code gives me double post
 .ui.form.segment
-  = form_for @swit do |form|
+  = form_with(model: @swit) do |form|
     .ui.field
       %label Your Swit
-      = form.text_area :content, id: :swit_content, maxlength: 200 , rows: 3, placeholder: 'Whats on your mind ?'
-    .ui.field  
-      = form.text_field :tag_list,placeholder: 'seperate tags with { ', value: form.object.tag_list.to_s  
+    = form.text_area :content, id: :swit_content, maxlength: 200 , rows: 3, placeholder: 'Whats on your mind ?'
+    .ui.field
+    = form.text_field :tag_list,placeholder: 'seperate tags with { ', value: form.object.tag_list.to_s
     .lblCounter.counter
       Character left:
       %span#counter.counter{"data-maximum-length" => "140"}= @maximum_length
     .actions
-      = form.submit 'Post', :class=>'ui green button'
-
-:javascript
-  $(document).ready(function() {
-  var content = $("#swit_content");
-  var counter     = $("#counter");
-  var max_length  = counter.data("maximum-length");
-  counter.text(max_length - content.val().length);
-
-  content.keyup(function() {
-  counter.text(max_length - $(this).val().length)
-  });
-  });
+      = form.submit 'Post', class: 'ui green button'

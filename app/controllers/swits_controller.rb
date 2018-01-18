@@ -1,5 +1,6 @@
 class SwitsController < ApplicationController
   before_action :set_swit, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html, :jpg, :xml
   ActsAsTaggableOn.delimiter = '{'
   def new
     @maximum_length = Swit.validators_on( :content ).first.options[:maximum]
